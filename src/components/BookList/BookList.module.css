@@ -1,0 +1,11 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 32px;
+}
+@media (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
