@@ -1,12 +1,63 @@
-# React + Vite
+# Book Collection App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web para gestionar tu colección de libros, desarrollada con React y Vite.
 
-Currently, two official plugins are available:
+## Demo
+Netlify aquí:  
+[https://super-taiyaki-49a287.netlify.app/](https://super-taiyaki-49a287.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos previos
 
-## Expanding the ESLint configuration
+- Node.js (v20 o superior recomendado)
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalación
+
+1. Clona este repositorio:
+   ```sh
+   git clone https://github.com/tu-usuario/tu-repo.git
+   cd 11_client-side_final-project_frontend
+   ```
+
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+
+## Uso en desarrollo
+
+Para iniciar el servidor de desarrollo:
+
+```sh
+npm run dev
+```
+
+La aplicación estará disponible en [http://localhost:5173](http://localhost:5173) (o el puerto que indique la terminal).
+
+## Scripts disponibles
+
+- `npm run dev` — Inicia el servidor de desarrollo.
+- `npm run build` — Genera la versión de producción en la carpeta `dist`.
+- `npm run preview` — Sirve la versión de producción localmente.
+- `npm run lint` — Ejecuta ESLint para comprobar el código.
+- `npm run test` — Ejecuta los tests con Vitest.
+
+## Variables de entorno
+
+Puedes configurar la URL de la API en el archivo `.env`:
+
+```
+VITE_API_URL = "http://localhost:3000/books"
+```
+
+## Testing
+
+Para ejecutar los tests:
+
+```sh
+npm run test
+```
+
+---
+
+Pau!
