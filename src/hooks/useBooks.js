@@ -49,7 +49,7 @@ export function useBooks() {
       try {
         const data = await fetchBooks();
         setBooks(data);
-      } catch (err) {
+      } catch {
         setError('Error loading books');
       } finally {
         setLoading(false);
