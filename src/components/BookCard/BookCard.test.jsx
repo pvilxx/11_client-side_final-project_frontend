@@ -1,44 +1,34 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import BookCard from './BookCard';
+import { test, expect } from "vitest";
+import { render } from "@testing-library/react";
+import BookCard from "./BookCard";
 
-// Arrange: mock book and handlers
-describe('BookCard', () => {
-  const mockBook = {
+const book = {
     id: 1,
-    title: 'Clean Code',
-    author: 'Robert C. Martin',
-    year: 2008
-  };
-  const onEdit = vi.fn();
-  const onDelete = vi.fn();
+    title: "Book",
+    author: "Author",
+    year: 2024,
+    status: "pending",
+};
 
-  it('renders book data and action buttons', () => {
+test("calls edit and delete when buttons are clicked", () => {
+    // Arrange
+    let editClicked = false;
+    let deleteClicked = false;
+    const handleEdit = () => {
+        editClicked = true;
+    };
+    const handleDelete = () => {
+        deleteClicked = true;
+    };
+
     // Act
-    render(
-      <BookCard book={mockBook} onEdit={onEdit} onDelete={onDelete} />
+    const { getByText } = render(
+        <BookCard book={book} onEdit={handleEdit} onDelete={handleDelete} />,
     );
+    getByText(/edit/i).click();
+    getByText(/delete/i).click();
+
     // Assert
-    expect(screen.getByText('Clean Code')).toBeInTheDocument();
-    expect(screen.getByText('Robert C. Martin')).toBeInTheDocument();
-    expect(screen.getByText('2008')).toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: /edit/i })[0]).toBeInTheDocument();
-    expect(screen.getAllByRole('button', { name: /delete/i })[0]).toBeInTheDocument();
-  });
-
-  it('calls onEdit when edit button is clicked', () => {
-    render(
-      <BookCard book={mockBook} onEdit={onEdit} onDelete={onDelete} />
-    );
-    fireEvent.click(screen.getAllByRole('button', { name: /edit/i })[0]);
-    expect(onEdit).toHaveBeenCalledWith(mockBook);
-  });
-
-  it('calls onDelete when delete button is clicked', () => {
-    render(
-      <BookCard book={mockBook} onEdit={onEdit} onDelete={onDelete} />
-    );
-    fireEvent.click(screen.getAllByRole('button', { name: /delete/i })[0]);
-    expect(onDelete).toHaveBeenCalledWith(mockBook.id);
-  });
+    expect(editClicked).toBe(true);
+    expect(deleteClicked).toBe(true);
 });

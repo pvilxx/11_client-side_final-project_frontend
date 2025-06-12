@@ -41,7 +41,6 @@
   color: #888;
 }
 
-/* Reset and base styles */
 .book-collection {
   max-width: 900px;
   margin: 0 auto;
@@ -221,6 +220,3 @@
     gap: 10px;
   }
 }
-
-/* Sutil sombra para tarjetas y formularios */
-/* Mucho white space y bordes suaves */
